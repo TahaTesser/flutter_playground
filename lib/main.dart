@@ -13,10 +13,6 @@ class MyApp extends StatelessWidget {
         appBar: AppBar(
           title: const Text('Sample'),
         ),
-        floatingActionButton: FloatingActionButton(
-          onPressed: () {},
-          child: const Icon(Icons.add),
-        ),
       ),
     );
   }
