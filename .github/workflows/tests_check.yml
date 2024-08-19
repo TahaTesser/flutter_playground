@@ -33,6 +33,6 @@ jobs:
             github.rest.issues.createComment({
               issue_number: context.issue.number,
               owner: context.repo.owner,
-              repo: context.repo.name,
+              repo: context.repo.repo,
               body: 'It appears that this PR does not include any tests. It is recommended to add tests, especially for critical changes, to ensure code quality and prevent regressions.'
             })
