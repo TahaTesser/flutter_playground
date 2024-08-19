@@ -15,8 +15,8 @@ jobs:
       - name: Check for changes in test directory
         id: check-tests
         run: |
-          git diff --name-only origin/${{ github.base_ref }}..origin/${{ github.head_ref }} > changed_files.txt
-          if grep -q "^test/" changed_files.txt; then
+          git status --porcelain > changed_files.txt
+          if grep -qE "^[AM]\s+test/" changed_files.txt; then
             echo "Tests found in the PR"
             echo "tests_present=true" >> $GITHUB_OUTPUT
           else
@@ -33,5 +33,5 @@ jobs:
               issue_number: context.issue.number,
               owner: context.repo.owner,
               repo: context.repo.repo,
-              body: 'It appears that this PR does not include any tests. It is recommended to add tests, especially for critical changes, to ensure code quality and prevent regressions.'
+              body: 'It appears that this PR does not include any tests. It is recommended to add tests, especially for critical changes, to ensure code quality and prevent regressions. However, if this PR is only updating samples or documentation, feel free to skip adding tests and disregard this comment.'
             })
