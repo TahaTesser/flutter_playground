@@ -1,6 +1,6 @@
 {
-    "name": "playground",
-    "short_name": "playground",
+    "name": "flutter_playground",
+    "short_name": "flutter_playground",
     "start_url": ".",
     "display": "standalone",
     "background_color": "#0175C2",
